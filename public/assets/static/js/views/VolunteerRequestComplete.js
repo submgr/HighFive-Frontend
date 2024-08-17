@@ -1,0 +1,16 @@
+import AbstractView from "./AbstractView.js";
+import { readTextFile } from "../utils.js";
+
+export default class extends AbstractView {
+    constructor(params) {
+        super(params);
+        this.setTitle("Завершение заявки");
+        this.updateNavigation("volunteer");
+    }
+
+    async getHtml() {
+        //return readTextFile();
+        var pageContent = readTextFile("./components/VolunteerRequestComplete.html");
+        return pageContent;
+    }
+}
