@@ -6,11 +6,12 @@
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">
-      <ion-header collapse="condense" style="line-height: 27px !important;">
-        <ion-toolbar>
-          <ion-title size="large">Стать волонтером</ion-title>
-        </ion-toolbar>
-      </ion-header>
+      <ion-header collapse="condense" style="visibility:hidden;">
+                <ion-toolbar>
+                    <ion-title size="large"></ion-title>
+                </ion-toolbar>
+            </ion-header>
+            <h1 style="margin-left: 1.1rem; margin-top: -2rem; font-weight: 700; font-size: 34px; z-index: 9999999 !important;">Стать волонтером</h1>
 
       <div class="card card-full rounded-l">
         <div class="content">

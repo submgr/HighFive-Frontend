@@ -6,11 +6,12 @@
             </ion-toolbar>
         </ion-header>
         <ion-content :fullscreen="true">
-            <ion-header collapse="condense">
+            <ion-header collapse="condense" style="visibility:hidden;">
                 <ion-toolbar>
-                    <ion-title size="large">Главная</ion-title>
+                    <ion-title size="large"></ion-title>
                 </ion-toolbar>
             </ion-header>
+            <h1 style="margin-left: 1.1rem; margin-top: -2rem; font-weight: 700; font-size: 34px; z-index: 9999999 !important;">Главная</h1>
             <div class="card card-style card-full"
                 style="margin-top: 30px; margin-bottom: 15px; background-image: url('https://images.pexels.com/photos/7176319/pexels-photo-7176319.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); height: 270px;">
                 <div class="card-top pt-4 ps-3">

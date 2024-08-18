@@ -6,11 +6,12 @@
             </ion-toolbar>
         </ion-header>
         <ion-content :fullscreen="true">
-            <ion-header collapse="condense">
+            <ion-header collapse="condense" style="visibility:hidden;">
                 <ion-toolbar>
-                    <ion-title size="large">О приложении</ion-title>
+                    <ion-title size="large"></ion-title>
                 </ion-toolbar>
             </ion-header>
+            <h1 style="margin-left: 1.1rem; margin-top: -2rem; font-weight: 700; font-size: 34px; z-index: 9999999 !important;">О приложении</h1>
             <!-- card in this page format must have the class card-full to avoid seeing behind it-->
             <div class="card card-full rounded-l pb-4">
                 <a href="https://vk.com/vol.highfive">

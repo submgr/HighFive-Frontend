@@ -6,11 +6,12 @@
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">
-      <ion-header collapse="condense">
-        <ion-toolbar>
-          <ion-title size="large">Пункт волонтера</ion-title>
-        </ion-toolbar>
-      </ion-header>
+      <ion-header collapse="condense" style="visibility:hidden;">
+                <ion-toolbar>
+                    <ion-title size="large"></ion-title>
+                </ion-toolbar>
+            </ion-header>
+            <h1 style="margin-left: 1.1rem; margin-top: -2rem; font-weight: 700; font-size: 34px; z-index: 9999999 !important;">Пункт волонтера</h1>
 
       <div v-if="!hasLoadFinished" style="text-align: center; margin-top: 30vh;">
         <ion-spinner></ion-spinner>
@@ -104,4 +105,6 @@ export default defineComponent({
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>

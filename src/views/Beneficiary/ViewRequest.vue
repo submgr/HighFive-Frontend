@@ -6,11 +6,12 @@
             </ion-toolbar>
         </ion-header>
         <ion-content :fullscreen="true">
-            <ion-header collapse="condense" style="line-height: 26px !important;">
+            <ion-header collapse="condense" style="visibility:hidden;">
                 <ion-toolbar>
-                    <ion-title size="large">Заявка №{{ request_id }}</ion-title>
+                    <ion-title size="large"></ion-title>
                 </ion-toolbar>
             </ion-header>
+            <h1 style="margin-left: 1.1rem; margin-top: -2rem; font-weight: 700; font-size: 34px; z-index: 9999999 !important;">Заявка №{{ request_id }}</h1>
 
             <div v-if="request && request != 'NetworkError'">
                 <RequestFullView :request="request" :isVolunteer="false" @refreshCallback="getRequestData" />
