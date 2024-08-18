@@ -5,11 +5,11 @@
     <div class="card card-style mt-n3">
         <div class="content mb-2 mt-3">
             <div class="list-group list-custom-small list-icon-0">
-                <a v-if="isVolunteer == false && request.status != 'open'" href="#"
+                <a v-if="isVolunteer == false && request.status != 'open'"
                     id="actionslist_OpenChatWithVolunteer" @click="actionpoint('openChatWithVolunteer');"><i
                         class="fa bi-chat-dots rounded-sm bg-blue-dark"></i><span>Перейти в чат с волонтером</span><i
                         class="fa fa-angle-right"></i></a>
-                <a v-if="isVolunteer == true && request.status != 'open'" id="actionslist_OpenChatWithBeneficial"
+                <a v-if="isVolunteer == true && request.status != 'open'" 
                     @click="actionpoint('openChatWithBeneficial');"><i
                         class="fa bi-chat-dots rounded-sm bg-blue-dark"></i><span>Перейти в чат с вашим
                         учеником</span><i class="fa fa-angle-right"></i></a>
@@ -126,8 +126,12 @@ export default defineComponent({
 
             var TelegramChatID = "";
             var VKChatID = "";
+            if(this.request.vk_userid){
+                VKChatID = VKChatID + this.request.vk_userid
+            }
+            
 
-            var isTelegramChatAvailable = true;
+            var isTelegramChatAvailable = false;
             var isVKChatAvailable = true;
             var buttons = [
 
@@ -150,7 +154,7 @@ export default defineComponent({
                     },
                 )
             }
-            if (isTelegramChatAvailable) {
+            if (isVKChatAvailable) {
                 buttons.unshift(
                     {
                         text: 'ВКонтакте',
