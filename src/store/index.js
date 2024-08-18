@@ -14,7 +14,7 @@ export function auth_logout() {
   localStorage.removeItem("auth_token");
   localStorage.removeItem("auth_userid");
   localStorage.removeItem("vuex"); //remove vuex Store
-  this.$router.push({ path: "/tabs/auth/loggedOut", replace: true });
+  //this.$router.push({ path: "/tabs/auth/loggedOut", replace: true });
 }
 
 import { createStore } from "vuex";
@@ -69,7 +69,7 @@ export default createStore({
           switch (error.response.status.toString()) {
             case "401":
               //UNAUTHORIZED!!
-              //auth_logout();
+              auth_logout();
               break;
             case "404":
               //wtf??
