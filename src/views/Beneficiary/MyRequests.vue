@@ -6,7 +6,7 @@
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">
-      <ion-refresher slot="fixed" @ionRefresh="getDataFromServer">
+      <ion-refresher slot="fixed" @ionRefresh="handleRefresh($event)">
         <ion-refresher-content></ion-refresher-content>
       </ion-refresher>
       <ion-header collapse="condense" style="visibility:hidden;">
@@ -94,6 +94,13 @@ export default defineComponent({
       console.log(this.requestsToDisplay)
       this.hasLoadFinished = true;
 
+    },
+    async handleRefresh(event: CustomEvent) {
+      this.getDataFromServer();
+      setTimeout(() => {
+        // Any calls to load data go here
+        event.target.complete();
+      }, 2000);
     }
   },
   data() {
