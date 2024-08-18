@@ -15,7 +15,7 @@
             <div class="card card-full rounded-l pb-4">
                 <a href="https://vk.com/vol.highfive">
                     <div class="text-center" style="margin: 0px 12%; margin-top: 9%; margin-left: 18.5%;">
-                        <img src="./static/images/graphics/hf_logo_blue.png" class="img-fluid">
+                        <img src="../assets/graphics/hf_logo_blue.png" class="img-fluid">
                     </div>
                 </a>
                 <!-- <div class="text-center" style="margin: 0px 15%; margin-top: -8%;">
