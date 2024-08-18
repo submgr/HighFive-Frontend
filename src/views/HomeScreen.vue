@@ -82,7 +82,7 @@ export default defineComponent({
     },
     methods: {
         goto(page: string) {
-            switch (key) {
+            switch (page) {
                 case "beneficiary":
                     this.$router.push({path:'/webapp/Beneficiary/', replace: true });
                     break;
