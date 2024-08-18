@@ -13,9 +13,9 @@
                     onclick="actionpoint('openChatWithBeneficial');"><i
                         class="fa bi-chat-dots rounded-sm bg-blue-dark"></i><span>Перейти в чат с вашим
                         учеником</span><i class="fa fa-angle-right"></i></a>
-                <a @click="changeRequestStatus(request.id)" id="actionslist_ChangeRequestStatus" data-menu="menu-change-status"><i
-                        class="fa bi-activity rounded-sm bg-red-dark"></i><span>Изменить статус заявки</span><i
-                        class="fa fa-angle-right"></i></a>
+                <a @click="changeRequestStatus(request.id)" id="actionslist_ChangeRequestStatus"
+                    data-menu="menu-change-status"><i class="fa bi-activity rounded-sm bg-red-dark"></i><span>Изменить
+                        статус заявки</span><i class="fa fa-angle-right"></i></a>
             </div>
             <p class="font-11 opacity-70 font-italic line-height-s pt-4 pb-4"><strong
                     class="color-highlight">Информация</strong>.
@@ -122,6 +122,95 @@ export default defineComponent({
     },
     methods: {
 
+        async actionpoint(source = "none") {
+
+            var TelegramChatID = "";
+            var VKChatID = "";
+
+            var isTelegramChatAvailable = true;
+            var isVKChatAvailable = true;
+            var buttons = [
+
+                {
+                    text: 'Назад',
+                    role: 'cancel',
+                    data: {
+                        action: 'cancel',
+                    },
+                }
+            ]
+            if (isTelegramChatAvailable) {
+                buttons.unshift(
+                    {
+                        text: 'Телеграм',
+                        role: "",
+                        data: {
+                            action: 'open_telegramchat',
+                        },
+                    },
+                )
+            }
+            if (isTelegramChatAvailable) {
+                buttons.unshift(
+                    {
+                        text: 'ВКонтакте',
+                        role: "",
+                        data: {
+                            action: 'open_vkchat',
+                        },
+                    },
+                )
+            }
+
+            const actionSheet = await actionSheetController.create({
+                header: 'Способы связи',
+                buttons: buttons,
+            });
+
+            actionSheet.present();
+
+            const { data } = await actionSheet.onWillDismiss();
+
+            if (data.action === 'open_telegramchat') {
+                // Создаём новый элемент <a>
+                const a = document.createElement('a');
+
+                // Задаём ему нужный URL
+                a.href = 'https://t.me/' + TelegramChatID;
+
+                // Устанавливаем атрибут target, если нужно открыть в новой вкладке
+                a.target = '_blank'; // опционально, если нужно открыть в новом окне
+
+                // Добавляем элемент в DOM (можно добавить его в body)
+                document.body.appendChild(a);
+
+                // Программно кликаем на элемент
+                a.click();
+
+                // Удаляем элемент после клика, если он больше не нужен
+                document.body.removeChild(a);
+            }
+            if (data.action === 'open_vkchat') {
+                // Создаём новый элемент <a>
+                const a = document.createElement('a');
+
+                // Задаём ему нужный URL
+                a.href = 'https://vk.me/id' + TelegramChatID;
+
+                // Устанавливаем атрибут target, если нужно открыть в новой вкладке
+                a.target = '_blank'; // опционально, если нужно открыть в новом окне
+
+                // Добавляем элемент в DOM (можно добавить его в body)
+                document.body.appendChild(a);
+
+                // Программно кликаем на элемент
+                a.click();
+
+                // Удаляем элемент после клика, если он больше не нужен
+                document.body.removeChild(a);
+            }
+        },
+
         async checkIfCreatedOnOldVersion() {
 
             if (+this.request.id <= 1450) {
@@ -138,7 +227,7 @@ export default defineComponent({
         },
         async changeRequestStatus(id = -1) {
             const actionSheet = await actionSheetController.create({
-                header: 'Actions',
+                header: 'Действия',
                 buttons: [
                     {
                         text: 'Отменить',
@@ -180,7 +269,7 @@ export default defineComponent({
                 ifNeeded_NewStatus = "complete";
             }
 
-            if(needToChangeStatusOnServer){
+            if (needToChangeStatusOnServer) {
                 this.$axios.get(this.$globaldata.api.hostname + 'access/requests/change_status', {
                     params: {
                         request_id: this.request.id,
