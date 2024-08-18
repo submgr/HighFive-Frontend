@@ -26,7 +26,6 @@
                         <button @click="goto('beneficiary')"
                             data-menu="menu-join"
                             class="btn btn-s bg-white color-black font-600 rounded-s"
-                            onclick='$(".active-nav").removeClass("active-nav"); $(".btn_footer_beneficial").addClass("active-nav");'
                             data-link>Получить помощь</button>
                     </div>
                 </div>
@@ -47,7 +46,6 @@
                     <div class="float-end">
                         <button  @click="goto('volunteer')" data-menu="menu-join"
                             class="btn btn-s bg-white color-black font-600 rounded-s"
-                            onclick='$(".active-nav").removeClass("active-nav"); $(".btn_footer_volunteer").addClass("active-nav");'
                             data-link>Стать волонтером</button>
                     </div>
                 </div>
@@ -87,6 +85,9 @@ export default defineComponent({
             switch (key) {
                 case "beneficiary":
                     this.$router.push({path:'/webapp/Beneficiary/', replace: true });
+                    break;
+                case "volunteer":
+                    this.$router.push({path:'/webapp/Volunteer/', replace: true });
                     break;
             
                 default:
