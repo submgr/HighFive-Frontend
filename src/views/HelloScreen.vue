@@ -6,6 +6,20 @@
         <ion-spinner></ion-spinner>
       </div>
 
+      <div v-if="hasLoadCompleted && anErrorOccured == true"
+        style="text-align: center; margin-top: 30vh; margin-left: 6vw; margin-right: 6vw;">
+        <p style="font-size: 18px; font-weight: 600;">Ошибка сервера
+          <br /><br />
+        <p style="font-weight: 400; line-height: 1.7 !important; font-size: 14px;">Не удалось вас проверить<br />Попробуйте еще раз через
+          пару минут.</p>
+        </p>
+
+
+        <button @click="executePrerequisites" id="accept_btn_id${i}"
+          style="height: 42px; line-height: 15px; margin-bottom: 12px; width: 100%;"
+          class="btn btn-full btn-m font-11 font-600 rounded-sm gradient-highlight">Повторить запрос</button>
+      </div>
+
       <div style="margin-left: 15px; margin-right: 7vw; margin-top: 10vh;">
         <div id="VkIdSdkOneTap"></div>
       </div>
@@ -51,6 +65,7 @@ export default defineComponent({
       });
     },
     executePrerequisites() {
+      this.anErrorOccured = false
 
       VKID.Config.set({
         app: 52163922,
@@ -122,6 +137,7 @@ export default defineComponent({
     return {
       hasLoadCompleted: false,
       manualAuthRequired: false,
+      anErrorOccured: false
     }
   },
   setup() {
