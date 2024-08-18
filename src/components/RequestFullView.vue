@@ -6,11 +6,11 @@
         <div class="content mb-2 mt-3">
             <div class="list-group list-custom-small list-icon-0">
                 <a v-if="isVolunteer == false && request.status != 'open'" href="#"
-                    id="actionslist_OpenChatWithVolunteer" onclick="actionpoint('openChatWithVolunteer');"><i
+                    id="actionslist_OpenChatWithVolunteer" @click="actionpoint('openChatWithVolunteer');"><i
                         class="fa bi-chat-dots rounded-sm bg-blue-dark"></i><span>Перейти в чат с волонтером</span><i
                         class="fa fa-angle-right"></i></a>
                 <a v-if="isVolunteer == true && request.status != 'open'" id="actionslist_OpenChatWithBeneficial"
-                    onclick="actionpoint('openChatWithBeneficial');"><i
+                    @click="actionpoint('openChatWithBeneficial');"><i
                         class="fa bi-chat-dots rounded-sm bg-blue-dark"></i><span>Перейти в чат с вашим
                         учеником</span><i class="fa fa-angle-right"></i></a>
                 <a @click="changeRequestStatus(request.id)" id="actionslist_ChangeRequestStatus"
