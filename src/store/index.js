@@ -69,7 +69,7 @@ export default createStore({
           switch (error.response.status.toString()) {
             case "401":
               //UNAUTHORIZED!!
-              auth_logout();
+              //auth_logout();
               break;
             case "404":
               //wtf??
