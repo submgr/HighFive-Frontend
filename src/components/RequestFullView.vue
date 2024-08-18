@@ -194,12 +194,13 @@ export default defineComponent({
                 // Удаляем элемент после клика, если он больше не нужен
                 document.body.removeChild(a);
             }
+            
             if (data.action === 'open_vkchat') {
                 // Создаём новый элемент <a>
                 const a = document.createElement('a');
 
                 // Задаём ему нужный URL
-                a.href = 'https://vk.me/id' + TelegramChatID;
+                a.href = 'https://vk.me/id' + VKChatID;
 
                 // Устанавливаем атрибут target, если нужно открыть в новой вкладке
                 a.target = '_blank'; // опционально, если нужно открыть в новом окне
