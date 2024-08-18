@@ -54,7 +54,7 @@
 </template>
 
 <script lang="ts">
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonFab, IonFabButton, IonIcon } from '@ionic/vue';
+import { IonPage, IonHeader, IonToolbar, IonRefresher, IonRefresherContent, IonTitle, IonContent, IonFab, IonFabButton, IonIcon } from '@ionic/vue';
 import RequestPreviewCard from '@/components/RequestPreviewCard.vue';
 
 import { addOutline } from 'ionicons/icons';
@@ -68,7 +68,7 @@ import axios from 'axios';
 export default defineComponent({
   name: 'Tab1Page',
   components: {
-    IonPage, IonHeader, IonToolbar, IonTitle, IonContent, RequestPreviewCard,
+    IonPage, IonHeader, IonToolbar, IonRefresher, IonRefresherContent, IonTitle, IonContent, RequestPreviewCard,
     IonFab, IonFabButton, IonIcon // Make sure to import IonFab, IonFabButton, and IonIcon
   },
   mounted() {
